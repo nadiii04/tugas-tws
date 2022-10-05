@@ -26,8 +26,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo base_url('welcome/keuangan') ?>">Keuangan</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?php echo base_url('') ?>">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
                     </ul>
@@ -35,7 +35,7 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/images/bg.jpg')">
+        <header class="masthead" style="background-image: url('../assets/images/bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -50,27 +50,32 @@
         <!-- Main Content-->
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="h1 mt-5 mb-5">Portal Berita : </div>
-                <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="h1 mt-5 mb-5">Data Keuangan : </div>
+                <!-- <div class="col-md-10 col-lg-8 col-xl-7"> -->
                     <!-- Post preview-->
-                    <?php foreach ($info as $ino) :?>
-                    <div class="post-preview">
-                        <a href="#">
-                            <h2 class="post-title"><?php echo $ino->judul ?></h2>
-                            <h3 class="post-subtitle"><?php echo $ino->kategori ?></h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Admin</a>
-                            on <?php echo $ino->tanggal ?>
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <?php endforeach; ?>
-                    <!-- Post preview-->
-                    <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                    <table class="table container mb-5">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Pemasukan</th>
+      <th scope="col">Pengeluaran</th>
+      <th scope="col">Keterangan</th>
+      <th scope="col">Tanggal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($keuangan as $kg) : ?>
+    <tr>
+      <th scope="row"><?php echo $kg->id ?></th>
+      <td>Rp . <?php echo $kg->pemasukan ?></td>
+      <td>Rp . <?php echo $kg->pengeluaran ?></td>
+      <td><?php echo $kg->keterangan ?></td>
+      <td><?php echo $kg->tanggal ?></td>
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+                
                 </div>
             </div>
         </div>
