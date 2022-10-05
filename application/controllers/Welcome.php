@@ -14,4 +14,16 @@ class Welcome extends CI_Controller {
 		$data['keuangan'] = $this->model_keuangan->get()->result();
 		$this->load->view('keuangan',$data);
 	}
+
+	public function album()
+	{
+		$data['album'] = $this->model_album->get()->result();
+		$this->load->view('album', $data);
+	}
+
+	public function anggota()
+	{
+		$data['anggota'] = $this->model_anggota->get()->result();
+		$this->load->view('anggota', $data);
+	}
 }
